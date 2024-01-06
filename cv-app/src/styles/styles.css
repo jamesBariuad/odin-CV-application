@@ -1,0 +1,14 @@
+#root{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    margin-top: 5em;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

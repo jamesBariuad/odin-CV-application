@@ -1,15 +1,11 @@
 import React from "react";
 
 const Education = ({ handleDataChange }) => {
-
-  const educationData = []
-  educationData.push
   return (
     <>
       <h3>Education</h3>
-      <button type="button" onClick={handleAddEducation}>Add Education</button>
       
-      {/* <> <div>
+      <> <div>
         <label htmlFor="schoolName">School Name</label>
         <input
           type="text"
@@ -17,7 +13,7 @@ const Education = ({ handleDataChange }) => {
           id="schoolName"
           placeholder="Enter school / university"
           onChange={handleDataChange}
-        />
+          />
       </div>
       <div>
         <label htmlFor="course">Course</label>
@@ -27,10 +23,10 @@ const Education = ({ handleDataChange }) => {
           id="course"
           placeholder="Enter Degree / Field of Study"
           onChange={handleDataChange}
-        />
+          />
       </div>
       <div>
-        <label htmlFor="date">Start Date:</label>
+        <label htmlFor="date">Date:</label>
         <input
           type="text"
           name="date"
@@ -38,9 +34,10 @@ const Education = ({ handleDataChange }) => {
           placeholder="Enter Start-End Date"
           onChange={handleDataChange}
         />
-      </div></> */}
+      </div></>
     </>
   );
+  {/* <button type="button" onClick={handleAddEducation}>Add Education</button> */}
 };
 
 export default Education;

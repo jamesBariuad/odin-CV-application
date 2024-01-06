@@ -1,24 +1,14 @@
 import React from "react";
 
-const CVPreview = ({ data }) => {
-  console.log(data);
-  // schoolName: "Wendy Dale",
-  // name: "Howard Roberts",
-  // email: "piki@mailinator.com",
-  // phone: "+1 (316) 115-3415",
-  // course: "Voluptatem Aut aute",
-  // date: "22-Jan-2020",
-  // companyName: "Giles and Booth Traders",
-  // positionTitle: "Sed pariatur Quibus",
-  // responsibilities: "Veniam quia et qui ",
-  // dateActive: "22-Apr-2021",
+const CVPreview = ({ data, }) => {
+ 
   return (
     <>
       CVPreview
       <div>
-        <h1>{data.name}</h1>
-        <div>{data.email}</div>
-        <div>{data.phone}</div>
+        <h1>{data.generalInfo.name}</h1>
+        <div>{data.generalInfo.email}</div>
+        <div>{data.generalInfo.phone}</div>
       </div>
       <div>
         <h2>Educational Experience</h2>

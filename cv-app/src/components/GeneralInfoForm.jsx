@@ -1,6 +1,6 @@
 import React from "react";
 
-const GeneralInfo = ({ handleDataChange }) => {
+const GeneralInfo = ({ handleGeneralInfoChange, data }) => {
   return (
     <>
       <h3>General Info</h3>
@@ -11,7 +11,8 @@ const GeneralInfo = ({ handleDataChange }) => {
           name="name"
           id="name"
           placeholder="First and Last Name"
-          onChange={handleDataChange}
+          onChange={handleGeneralInfoChange}
+          value={data.generalInfo.name}
         />
       </div>
       <div>
@@ -21,7 +22,8 @@ const GeneralInfo = ({ handleDataChange }) => {
           name="email"
           id="email"
           placeholder="Enter Email"
-          onChange={handleDataChange}
+          onChange={handleGeneralInfoChange}
+          value={data.generalInfo.email}
         />
       </div>
       <div>
@@ -31,7 +33,8 @@ const GeneralInfo = ({ handleDataChange }) => {
           name="phone"
           id="phone"
           placeholder="Enter Phone Number"
-          onChange={handleDataChange}
+          onChange={handleGeneralInfoChange}
+          value={data.generalInfo.phone}
         />
       </div>
     </>
