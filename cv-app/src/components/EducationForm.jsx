@@ -3,13 +3,19 @@ import React from "react";
 const Education = ({
   handleEducationInputChange,
   handleAddEducationFormField,
+  handleEducationDeleteClick,
   data,
 }) => {
   const displayAndBindInputs = data.education.map((entry, index) => {
     return (
-      <div key={index}>
-        <div>
-          <label htmlFor={`schoolName${index}`}>School Name</label>
+      <div key={index} className="mb-5 position-relative">
+        <div className={"mb-2"}>
+          <label
+            htmlFor={`schoolName${index}`}
+            className={"form-label mb-0 fw-medium"}
+          >
+            School Name:
+          </label>
           <input
             type="text"
             name="schoolName"
@@ -17,10 +23,16 @@ const Education = ({
             placeholder="Enter school / university"
             onChange={(e) => handleEducationInputChange(e, index)}
             value={entry.schoolName}
+            className={"form-control"}
           />
         </div>
-        <div>
-          <label htmlFor={`course${index}`}>Course</label>
+        <div className={"mb-2"}>
+          <label
+            htmlFor={`course${index}`}
+            className={"form-label mb-0 fw-medium"}
+          >
+            Course:
+          </label>
           <input
             type="text"
             name="course"
@@ -28,10 +40,16 @@ const Education = ({
             placeholder="Enter Degree / Field of Study"
             onChange={(e) => handleEducationInputChange(e, index)}
             value={entry.course}
+            className={"form-control"}
           />
         </div>
-        <div>
-          <label htmlFor={`date${index}`}>Date:</label>
+        <div className={"mb-3"}>
+          <label
+            htmlFor={`date${index}`}
+            className={"form-label mb-0 fw-medium"}
+          >
+            Date:
+          </label>
           <input
             type="text"
             name="date"
@@ -39,17 +57,26 @@ const Education = ({
             placeholder="Enter Start-End Date"
             onChange={(e) => handleEducationInputChange(e, index)}
             value={entry.date}
+            className={"form-control"}
           />
         </div>
+        {data.education.length > 1 && index == data.education.length - 1 && (
+          <button type="button" className="btn btn-outline-danger float-end" onClick={handleEducationDeleteClick}>
+            Delete
+          </button>
+        )}
       </div>
     );
   });
 
   return (
     <>
-      <h3>Education</h3>
       {displayAndBindInputs}
-      <button type="button" onClick={handleAddEducationFormField}>
+      <button
+        type="button"
+        onClick={handleAddEducationFormField}
+        className="btn btn-secondary"
+      >
         Add Education
       </button>
     </>

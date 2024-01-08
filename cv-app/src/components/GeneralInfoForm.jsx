@@ -3,9 +3,8 @@ import React from "react";
 const GeneralInfo = ({ handleGeneralInfoChange, data }) => {
   return (
     <>
-      <h3>General Info</h3>
-      <div>
-        <label htmlFor="name">Name:</label>
+      <div className={"mb-2"}>
+        <label htmlFor="name" className={"form-label mb-0 fw-medium"}>Name:</label>
         <input
           type="text"
           name="name"
@@ -14,10 +13,11 @@ const GeneralInfo = ({ handleGeneralInfoChange, data }) => {
           onChange={handleGeneralInfoChange}
           value={data.generalInfo.name}
           autoComplete='name'
+          className={"form-control"}
         />
       </div>
-      <div>
-        <label htmlFor="email">Email:</label>
+      <div className={"mb-2"}>
+        <label htmlFor="email"  className={"form-label mb-0 fw-medium"}>Email:</label>
         <input
           type="email"
           name="email"
@@ -26,10 +26,11 @@ const GeneralInfo = ({ handleGeneralInfoChange, data }) => {
           onChange={handleGeneralInfoChange}
           value={data.generalInfo.email}
           autoComplete='email'
+          className={"form-control"}
         />
       </div>
-      <div>
-        <label htmlFor="phone">Phone:</label>
+      <div className={"mb-2"}>
+        <label htmlFor="phone"  className={"form-label mb-0 fw-medium"}>Phone:</label>
         <input
           type="tel"
           name="phone"
@@ -38,6 +39,7 @@ const GeneralInfo = ({ handleGeneralInfoChange, data }) => {
           onChange={handleGeneralInfoChange}
           value={data.generalInfo.phone}
           autoComplete='tel'
+          className={"form-control"}
         />
       </div>
     </>

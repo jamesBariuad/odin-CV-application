@@ -7,9 +7,9 @@ const Experience = ({
 }) => {
   const displayAndBindInputs = data.experience.map((entry, index) => {
     return (
-      <div key={index}>
-        <div>
-          <label htmlFor={`companyName${index}`}>Company Name:</label>
+      <div key={index} className="mb-3">
+        <div className={"mb-2"}>
+          <label htmlFor={`companyName${index}`}  className={"form-label mb-0"}>Company Name:</label>
           <input
             type="text"
             name="companyName"
@@ -17,10 +17,11 @@ const Experience = ({
             placeholder="Enter Company Name"
             onChange={(e) => handleExperienceInputChange(e, index)}
             value={entry.companyName}
+            className={"form-control"}
           />
         </div>
-        <div>
-          <label htmlFor={`positionTitle${index}`}>Position Title:</label>
+        <div className={"mb-2"}>
+          <label htmlFor={`positionTitle${index}`}  className={"form-label mb-0"}>Position Title:</label>
           <input
             type="text"
             name="positionTitle"
@@ -28,10 +29,11 @@ const Experience = ({
             placeholder="Enter Position Title"
             onChange={(e) => handleExperienceInputChange(e, index)}
             value={entry.positionTitle}
+            className={"form-control"}
           />
         </div>
-        <div>
-          <label htmlFor={`responsibilities${index}`}>Responsibilities:</label>
+        <div className={"mb-2"}> 
+          <label htmlFor={`responsibilities${index}`}  className={"form-label mb-0"}>Responsibilities:</label>
           <textarea
             type="text"
             name="responsibilities"
@@ -39,10 +41,13 @@ const Experience = ({
             placeholder="Enter Description"
             onChange={(e) => handleExperienceInputChange(e, index)}
             value={entry.responsibilities}
+            className={"form-control"} 
+            style={{height:"100px"}}
           ></textarea>
         </div>
-        <div>
-          <label htmlFor={`dateActive${index}`}>Date Active:</label>
+        <div className={"mb-2"}>
+          <label htmlFor={`dateActive${index}`}
+          className={"form-label mb-0"}>Date Active:</label>
           <input
             type="textarea"
             name="dateActive"
@@ -50,6 +55,7 @@ const Experience = ({
             placeholder="Enter Start and End Date"
             onChange={(e) => handleExperienceInputChange(e, index)}
             value={entry.dateActive}
+            className={"form-control"} 
           />
         </div>
       </div>
@@ -58,9 +64,8 @@ const Experience = ({
 
   return (
     <>
-      <h3>Experience:</h3>
       {displayAndBindInputs}
-      <button type="button" onClick={handleAddExperienceClick}>
+      <button type="button" onClick={handleAddExperienceClick} className="btn btn-secondary">
         Add Experience
       </button>
     </>
