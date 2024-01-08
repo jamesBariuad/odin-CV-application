@@ -76,7 +76,6 @@ function App() {
 
 
   const handleAddExperienceClick = () => {
-    console.log(data);
     setData({
       ...data,
       experience: [
@@ -90,6 +89,15 @@ function App() {
       ],
     });
   };
+
+  const handleExperienceDeleteClick = () => {
+    const experienceDataArrayCopy = [...data.experience]
+    experienceDataArrayCopy.pop()
+    setData({
+      ...data,
+      experience: [...experienceDataArrayCopy]
+    })
+  }
 
   const handleExperienceInputChange = (e, index) => {
     const { name, value } = e.target;
@@ -135,11 +143,13 @@ function App() {
 
   return (
     <div className={"container d-flex"}>
-      <form className="w-50 p-5 accordion" id="form-accordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
+      <div className="w-50 p-5">
+      <button type="button" className="btn btn-outline-secondary mb-1 float-end me-5" onClick={loadDefaultData}>Load Default Values</button>
+      <form className="p-5 accordion" id="form-accordion">
+        <div className="accordion-item">
+          <h2 className="accordion-header">
             <button
-              class="accordion-button"
+              className="accordion-button"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -151,14 +161,14 @@ function App() {
           </h2>
           <div
             id="collapseOne"
-            class="accordion-collapse collapse show"
+            className="accordion-collapse collapse show"
             data-bs-parent="#form-accordion"
           >
-            <div class="accordion-body">
+            <div className="accordion-body">
               <GeneralInfoForm
                 handleGeneralInfoChange={handleGeneralInfoChange}
                 data={data}
-              />{" "}
+              />
             </div>
           </div>
         </div>
@@ -215,6 +225,7 @@ function App() {
               <ExperienceForm
                 handleExperienceInputChange={handleExperienceInputChange}
                 handleAddExperienceClick={handleAddExperienceClick}
+                handleExperienceDeleteClick={handleExperienceDeleteClick}
                 data={data}
               />
             </div>
@@ -222,7 +233,8 @@ function App() {
         </div>
       </form>
 
-      <div className="w-50 p-3">
+      </div>
+      <div className="w-50 p-3 pt-5">
         <CVPreview data={data} />
       </div>
     </div>

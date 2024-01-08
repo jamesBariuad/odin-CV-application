@@ -8,7 +8,7 @@ const Education = ({
 }) => {
   const displayAndBindInputs = data.education.map((entry, index) => {
     return (
-      <div key={index} className="mb-5 position-relative">
+      <div key={index} className="mb-5">
         <div className={"mb-2"}>
           <label
             htmlFor={`schoolName${index}`}
@@ -62,7 +62,7 @@ const Education = ({
         </div>
         {data.education.length > 1 && index == data.education.length - 1 && (
           <button type="button" className="btn btn-outline-danger float-end" onClick={handleEducationDeleteClick}>
-            Delete
+            Remove
           </button>
         )}
       </div>
