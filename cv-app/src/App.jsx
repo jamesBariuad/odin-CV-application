@@ -49,15 +49,14 @@ function App() {
     });
   };
 
-  const handleEducationDeleteClick = ()=>{
-
-    const educationDataArrayCopy = [...data.education]
-    educationDataArrayCopy.pop()
+  const handleEducationDeleteClick = () => {
+    const educationDataArrayCopy = [...data.education];
+    educationDataArrayCopy.pop();
     setData({
       ...data,
-      education: [...educationDataArrayCopy]
-    })
-  }
+      education: [...educationDataArrayCopy],
+    });
+  };
 
   const handleEducationInputChange = (e, index) => {
     const { name, value } = e.target;
@@ -73,7 +72,6 @@ function App() {
       };
     });
   };
-
 
   const handleAddExperienceClick = () => {
     setData({
@@ -91,13 +89,13 @@ function App() {
   };
 
   const handleExperienceDeleteClick = () => {
-    const experienceDataArrayCopy = [...data.experience]
-    experienceDataArrayCopy.pop()
+    const experienceDataArrayCopy = [...data.experience];
+    experienceDataArrayCopy.pop();
     setData({
       ...data,
-      experience: [...experienceDataArrayCopy]
-    })
-  }
+      experience: [...experienceDataArrayCopy],
+    });
+  };
 
   const handleExperienceInputChange = (e, index) => {
     const { name, value } = e.target;
@@ -140,101 +138,104 @@ function App() {
     });
   };
 
-
   return (
-    <div className={"container d-flex"}>
-      <div className="w-50 p-5">
-      <button type="button" className="btn btn-outline-secondary mb-1 float-end me-5" onClick={loadDefaultData}>Load Default Values</button>
-      <form className="p-5 accordion" id="form-accordion">
-        <div className="accordion-item">
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
+    <div className={"container d-flex flex-wrap"}>
+      <div className="p-5 w-50">
+        <button
+          type="button"
+          className="btn btn-outline-secondary mb-1 float-end me-5"
+          onClick={loadDefaultData}
+        >
+          Load Default Values
+        </button>
+        <form className="p-5 accordion" id="form-accordion">
+          <div className="accordion-item">
+            <h2 className="accordion-header">
+              <button
+                className="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <h5>General Info</h5>
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              className="accordion-collapse collapse show"
+              data-bs-parent="#form-accordion"
             >
-              <h5>General Info</h5>
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            className="accordion-collapse collapse show"
-            data-bs-parent="#form-accordion"
-          >
-            <div className="accordion-body">
-              <GeneralInfoForm
-                handleGeneralInfoChange={handleGeneralInfoChange}
-                data={data}
-              />
+              <div className="accordion-body">
+                <GeneralInfoForm
+                  handleGeneralInfoChange={handleGeneralInfoChange}
+                  data={data}
+                />
+              </div>
             </div>
           </div>
-        </div>
-       
 
-        <div className="accordion-item">
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
+          <div className="accordion-item">
+            <h2 className="accordion-header">
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                <h5>Education</h5>
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              className="accordion-collapse collapse"
+              data-bs-parent="#form-accordion"
             >
-              <h5>Education</h5>
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            className="accordion-collapse collapse"
-            data-bs-parent="#form-accordion"
-          >
-            <div className="accordion-body">
-              <EducationForm
-                handleEducationInputChange={handleEducationInputChange}
-                handleAddEducationFormField={handleAddEducationFormField}
-                handleEducationDeleteClick ={handleEducationDeleteClick}
-                data={data}
-              />
+              <div className="accordion-body">
+                <EducationForm
+                  handleEducationInputChange={handleEducationInputChange}
+                  handleAddEducationFormField={handleAddEducationFormField}
+                  handleEducationDeleteClick={handleEducationDeleteClick}
+                  data={data}
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="accordion-item">
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
+          <div className="accordion-item">
+            <h2 className="accordion-header">
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                <h5>Experience:</h5>
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              className="accordion-collapse collapse"
+              data-bs-parent="#form-accordion"
             >
-              <h5>Experience:</h5>
-            </button>
-          </h2>
-          <div
-            id="collapseThree"
-            className="accordion-collapse collapse"
-            data-bs-parent="#form-accordion"
-          >
-            <div className="accordion-body">
-              <ExperienceForm
-                handleExperienceInputChange={handleExperienceInputChange}
-                handleAddExperienceClick={handleAddExperienceClick}
-                handleExperienceDeleteClick={handleExperienceDeleteClick}
-                data={data}
-              />
+              <div className="accordion-body">
+                <ExperienceForm
+                  handleExperienceInputChange={handleExperienceInputChange}
+                  handleAddExperienceClick={handleAddExperienceClick}
+                  handleExperienceDeleteClick={handleExperienceDeleteClick}
+                  data={data}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-
+        </form>
       </div>
-      <div className="w-50 p-3 pt-5">
+      <div className="p-3 pt-5 w-50">
         <CVPreview data={data} />
       </div>
     </div>
