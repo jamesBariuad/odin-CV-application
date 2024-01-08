@@ -1,25 +1,12 @@
 import { useState } from "react";
 import "./styles/styles.css";
-import Education from "./components/EducationForm.jsx";
-import Experience from "./components/Experience.jsx";
-import GeneralInfo from "./components/GeneralInfoForm.jsx";
+import EducationForm from "./components/EducationForm.jsx";
+import ExperienceForm from "./components/ExperienceForm.jsx";
+import GeneralInfoForm from "./components/GeneralInfoForm.jsx";
 import CVPreview from "./components/CVPreview.jsx";
 
 function App() {
   const [data, setData] = useState({});
-  console.log(data);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.target);
-
-  //   const formDataObject = {};
-  //   formData.forEach((value, key) => {
-  //     formDataObject[key] = value;
-  //   });
-  //   console.log("Form Data Object:", formDataObject);
-  //   setData(formDataObject);
-  // };
 
   const handleDataChange = (e) => {
     const entry = e.target.id;
@@ -43,6 +30,59 @@ function App() {
         ...data.generalInfo,
         [entry]: value,
       },
+    });
+  };
+
+  const handleAddEducationFormField = () => {
+    setData({
+      ...data,
+      education: [...data.education, { schoolName: "", course: "", date: "" }],
+    });
+  };
+
+  const handleEducationInputChange = (e, index) => {
+    const { name, value } = e.target;
+    setData((prevData) => {
+      const updatedEducation = [...prevData.education];
+      updatedEducation[index] = {
+        ...updatedEducation[index],
+        [name]: value,
+      };
+      return {
+        ...prevData,
+        education: updatedEducation,
+      };
+    });
+  };
+
+  const handleAddExperienceClick = () => {
+    console.log(data);
+    setData({
+      ...data,
+      experience: [
+        ...data.experience,
+        {
+          companyName: "",
+          dateActive: "",
+          positionTitle: "",
+          responsibilities: "",
+        },
+      ],
+    });
+  };
+
+  const handleExperienceInputChange = (e,index) => {
+    const { name, value } = e.target;
+    setData((prevData) => {
+      const updatedExperience = [...prevData.experience];
+      updatedExperience[index] = {
+        ...updatedExperience[index],
+        [name]: value,
+      };
+      return {
+        ...prevData,
+        experience: updatedExperience,
+      };
     });
   };
 
@@ -75,15 +115,28 @@ function App() {
   return (
     <>
       <form>
-        <GeneralInfo handleGeneralInfoChange={handleGeneralInfoChange} data={data} />
-        <Education handleDataChange={handleDataChange} />
-        <Experience handleDataChange={handleDataChange} />
-      <button type="button" onClick={loadDefaultData}>
-        Load Default Data
-      </button>
+        <GeneralInfoForm
+          handleGeneralInfoChange={handleGeneralInfoChange}
+          data={data}
+        />
+        <EducationForm
+          handleEducationInputChange={handleEducationInputChange}
+          handleAddEducationFormField={handleAddEducationFormField}
+          data={data}
+        />
+        <ExperienceForm
+          handleExperienceInputChange={handleExperienceInputChange}
+          handleAddExperienceClick={handleAddExperienceClick}
+          data={data}
+        />
+        <button type="button" onClick={loadDefaultData}>
+          Load Default Data
+        </button>
       </form>
       <div>
-        <CVPreview data={Object.keys(data).length==0?loadDefaultData(): data   } />
+        <CVPreview
+          data={Object.keys(data).length == 0 ? loadDefaultData() : data}
+        />
       </div>
     </>
   );

@@ -1,7 +1,8 @@
 import React from "react";
+import EducationList from "./EducationList";
+import ExperienceList from "./ExperienceList";
 
-const CVPreview = ({ data, }) => {
- 
+const CVPreview = ({ data }) => {
   return (
     <>
       CVPreview
@@ -12,20 +13,11 @@ const CVPreview = ({ data, }) => {
       </div>
       <div>
         <h2>Educational Experience</h2>
-        <div>
-          <div>{data.schoolName}</div>
-          <div>{data.course}</div>
-          <div>{data.date}</div>
-        </div>
+        <EducationList data={data} />
       </div>
       <div>
         <h2>Practical Experience</h2>
-        <div>
-            <div>{data.companyName}</div>
-            <div>{data.positionTitle}</div>
-            <div>{data.responsibilities}</div>
-            <div>{data.dateActive}</div>
-        </div>
+        <ExperienceList data={data}/>
       </div>
     </>
   );

@@ -13,6 +13,7 @@ const GeneralInfo = ({ handleGeneralInfoChange, data }) => {
           placeholder="First and Last Name"
           onChange={handleGeneralInfoChange}
           value={data.generalInfo.name}
+          autoComplete='name'
         />
       </div>
       <div>
@@ -24,6 +25,7 @@ const GeneralInfo = ({ handleGeneralInfoChange, data }) => {
           placeholder="Enter Email"
           onChange={handleGeneralInfoChange}
           value={data.generalInfo.email}
+          autoComplete='email'
         />
       </div>
       <div>
@@ -35,6 +37,7 @@ const GeneralInfo = ({ handleGeneralInfoChange, data }) => {
           placeholder="Enter Phone Number"
           onChange={handleGeneralInfoChange}
           value={data.generalInfo.phone}
+          autoComplete='tel'
         />
       </div>
     </>
