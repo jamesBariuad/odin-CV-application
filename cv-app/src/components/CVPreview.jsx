@@ -9,8 +9,8 @@ const CVPreview = ({ data }) => {
   return (
     <>
       <div
-        className="border border-2 shadow-sm w-100 "
-        style={{ minHeight:"29.7cm", width:"21cm" }}
+        className="border border-2 shadow-sm w-100 mb-5 "
+        style={{ minHeight:"27.94cm", width:"22cm" }}
       >
         <div
           className="text-center p-4 text-white"

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./styles/styles.css";
 import EducationForm from "./components/EducationForm.jsx";
 import ExperienceForm from "./components/ExperienceForm.jsx";
 import GeneralInfoForm from "./components/GeneralInfoForm.jsx";
